@@ -142,6 +142,9 @@
                     //output
                     var ans = n1 + n2;
                     document.getElementById('result').textContent = "The answer is "+ans;
+                    if (Number.isNaN(Number.parseFloat(n))){
+                        window.alert("Try it again. You should enter a nmber.");
+                    }
                 }
             </script>
             <p> <input type="text" name="num1" /> + <input type="text" name="num2">
@@ -174,6 +177,8 @@
                 //event handler
                 function welcomeMessage(){
                     window.alert("Works!!!");
+                    var name = document.getElementById('cName').value;
+                    document.getElementById('message').innerHTML="Welcome <b>"+name+"</b>!";
                 }
                 //event -> event handler
                 var fE = document.getElementById('cName'); //input text box
@@ -184,8 +189,20 @@
         <div class="practice">
             <h1> Practice - Calculate Square</h1>
             Calculating Square:
-            <input type="text" id="num" placeholder="Type in a number"> <sup> 2 </sup> =
-            <label id="result"> ? </label>
+            <input type="text" id="num1" placeholder="Type in a number"> <sup> 2 </sup> =
+            <label id="result1"> ? </label>
+            <script>
+                function calculateSquare(){
+                    window.alert("It works");
+                    var n =parseFloat(document.getElementById('num1')[0].value);
+                    console.log("n="+n);
+                    var sqrs = n*n;
+                    document.getElementById('result1').textContent=sqrs;
+                }
+
+                var fE = document.getElementById('num1').value;
+                fE.addEventListner('blur',calculateSquare,false);
+            </script>
 
         </div>
 
@@ -197,10 +214,21 @@
 
             </textarea>
 
-            <input type="button" id="tryit" value="Click and Display"> 
+            <input type="button" id="tryit">" value="Click and Display"> 
 
-            <div id="message"> 
+            <div id="message1"> 
             </div>
+            <script>
+                // event handler
+                function tohtml(){
+                    var codes = document.getElementById('code').value;
+                    document.getElementById('message1').innerHTML=codes;
+                }
+
+                //event
+                var bE = document.getElementById('tryit');
+                bE.addEventListener('click',tohtml,false);
+            </script>
 
 
         </div>
