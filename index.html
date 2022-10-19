@@ -338,7 +338,7 @@
             <p>
                 <input type="button" value="Check Premium">
             </p>
-            <p id="result">
+            <p id="result2">
 
             </p>
             <script>
@@ -346,6 +346,31 @@
                     var rE = document.querySelector('input[name="coverage"]:checked');
                     var coverage = parseInt(rE.value);
                     console.log(coverage);
+                    var index = document.getElementById("agegroup").selectedIndex;
+                    var index = $('#agefroup')[0].selectedIndex;
+                    let agefactor = 0;
+                    switch(true){
+                        case ages<30:
+                            agefactor=0.08;
+                        case ages>30 && ages<34:
+                            agefactor=0.09;
+                        case ages>35 && ages<39:
+                            agefactor=0.11;
+                        case ages>40 && ages<44:
+                            agefactor=0.17;
+                        default:
+                            break;
+                    }
+                    let base = 100;
+                    premium = base + agefactor*coverage/1000;
+                    //display
+                    console.log(result2);
+                    if(index==0){
+                        this.animate([{transform:'scale(0.2)'},{transform:'scale(1.5)'}],{duration: 2000, fill: "forwards"});
+                    }else {
+                        this.animate([{transform:'translate(0,0)'},{transform:'translate(100px, 0)'}],{duration: 2000, fill: "forwards"});
+
+                    }
                 }
 
                  var bE=document.querySelector('input[value="Check Premium"]');
@@ -364,6 +389,19 @@
             <p>
                 <input type="button" value="Click for Square">
             </p>
+            <script>
+                function sosum(){
+                var sum = 0;
+                var N = parseInt(document.getElementById('inputnumber1').value);
+                for(var i=1; i<N+1; i++){
+                    //
+                }  
+                }
+
+                //add event listener
+                document.querySelector("#dosquare").addEventListener("click", dosum, false);
+                
+            </script>
 
         </div>
 
